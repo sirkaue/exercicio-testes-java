@@ -32,4 +32,17 @@ public class FinancingTests {
             Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
         });
     }
+
+    @Test
+    public void setTotalAmountShouldUpdateWhenValidatedData() {
+
+        double totalAmount = 100000.0;
+        double income = 2000.0;
+        int months = 80;
+
+        Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
+
+        financing.setTotalAmount(90000.0);
+        Assertions.assertEquals(90000.0,financing.getTotalAmount());
+    }
 }
