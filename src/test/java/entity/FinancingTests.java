@@ -114,4 +114,16 @@ public class FinancingTests {
             financing.setMonths(79);
         });
     }
+
+    @Test
+    public void entryShouldCalculateEntryCorrectly() {
+
+        double totalAmount = 100000.0;
+        double income = 2000.0;
+        int months = 80;
+
+        Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
+
+        Assertions.assertEquals(20000.0, financing.entry());
+    }
 }
