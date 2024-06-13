@@ -21,4 +21,15 @@ public class FinancingTests {
         Assertions.assertEquals(months, financing.getMonths());
     }
 
+    @Test
+    public void constructorShouldThrowIllegalArgumentExceptionWhenInvalidatedData() {
+
+        double totalAmount = 100000.0;
+        double income = 2000.0;
+        int months = 20;
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
+        });
+    }
 }
