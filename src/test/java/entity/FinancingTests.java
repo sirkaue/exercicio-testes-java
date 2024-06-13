@@ -87,4 +87,18 @@ public class FinancingTests {
             financing.setIncome(1900.0);
         });
     }
+
+    @Test
+    public void setMonthsShouldUpdateWhenValidatedData() {
+
+        double totalAmount = 100000.0;
+        double income = 2000.0;
+        int months = 80;
+
+        Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
+
+        financing.setMonths(81);
+
+        Assertions.assertEquals(81, financing.getMonths());
+    }
 }
