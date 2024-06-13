@@ -126,4 +126,16 @@ public class FinancingTests {
 
         Assertions.assertEquals(20000.0, financing.entry());
     }
+
+    @Test
+    public void quotaShouldCalculateQuotaCorrectly() {
+
+        double totalAmount = 100000.0;
+        double income = 2000.0;
+        int months = 80;
+
+        Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
+
+        Assertions.assertEquals(1000.0, financing.quota());
+    }
 }
