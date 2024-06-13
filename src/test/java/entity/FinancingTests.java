@@ -43,6 +43,21 @@ public class FinancingTests {
         Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
 
         financing.setTotalAmount(90000.0);
-        Assertions.assertEquals(90000.0,financing.getTotalAmount());
+        Assertions.assertEquals(90000.0, financing.getTotalAmount());
+    }
+
+    @Test
+    public void setTotalAmountShouldThrowIllegalArgumentExceptionWhenInvalidatedData() {
+
+        double totalAmount = 100000.0;
+        double income = 2000.0;
+        int months = 80;
+
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Financing financing = FinancingFactory.createFinancing(totalAmount, income, months);
+
+            financing.setTotalAmount(110000.0);
+        });
     }
 }
